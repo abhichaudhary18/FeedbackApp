@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{%block content%}
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<style media="screen">
+  .container{
+    text-align: center;
+
+  }
+  .get-started-btn{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1000em;
+        border-top-left-radius: 1000em;
+        border-top-right-radius: 1000em;
+        border-bottom-right-radius: 1000em;
+        border-bottom-left-radius: 1000em;
+        color: #0da39c;
+background-color: transparent;
+border-color: #10BBB3;
+display: inline-block;
+line-height: 1.6;
+white-space: nowrap;
+overflow: visible;
+width: 40%;
+}
+h2{
+  padding-bottom: 40px;
+}
+</style>
+<div class="container">
+  <div class="jumbotron">
+    <h1>Welcome {{request.user.username}}!</h1>
+    <h2> Copy this link and upload on various social handles to receive messages </h2>
+    <h3><a href="www.foryouforme.online/basicapp/{{request.user.username}}">www.foryouforme.online/basicapp/{{request.user.username}} </a></h3>
+    <h2>Click below to check messages!</h2>
+    <a href="{% url 'basicapp:inbox' %}" class= "btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Messages</a>
+  </div>
+
+</div>
+{% endblock %}

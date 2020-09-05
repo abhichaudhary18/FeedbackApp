@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style media="screen">
+  .container{
+    text-align: center;
+    color:white;
+  }
+  .login-box {
+    margin-left: auto;
+    margin-right: auto;
+  	width: 400px;
+  	padding: 40px;
+    background: rgba(0,0,0,.5);
+  	box-sizing: border-box;
+  	box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  	border-radius: 10px;
+  }
+  .btn-primary{
+  border-radius: 10px;
+  width: 50%;
+  height: 20%;
+  color: #0da39c;
+background-color: transparent;
+border-color: #10BBB3;
+
+  }
+  .login-box h2{
+  	margin: 0 0 30px;
+  	padding: 0;
+  	color: #F1EEE6;
+  	text-align: center;
+  }
+  input{
+    padding: 0 10px;
+    color: black;
+  }
+  .login-box h4{
+  	margin: 0 0 30px;
+  	padding: 0;
+  	color: #F1EEE6;
+  	text-align: center;
+  }
+
+  .login-box .user-box label{
+  	padding: 10px 0;
+  	font-size: 18px;
+    letter-spacing: 5px;
+  	color: #F1EEE6;
+  }
+
+
+  .login-box a{
+  	padding: 0px 20px;
+    transition: .15s;
+  	letter-spacing: 5px;
+  }
+
+
+  .login-box form a:hover {
+  	background: #03E9F4;
+  	color: #F1EEE6;
+  	border-radius: 5px;
+  	box-shadow: 0 0 5px #03E9F4,
+  							 0 0 25px #03E9F4,
+  							 0 0 50px #03E9F4,
+  							 0 0 100px #03E9F4;
+  }
+
+</style>
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="container">
+
+  <p></p>
+<div class="login-box">
+   <img src="{%static "/images/login.png" %}" alt="" >
+
+  <h2>Login</h2>
+  <form method="post">
+    <div class="user-box">
+    {% csrf_token %}
+    {{form.as_p }}
+    <input type="submit" class="btn btn-primary" value="Login">
+    <p></p>
+    <h4><a href="{% url 'password_reset'%}">Forgot password?</a></h4>
+    <h4>Not Registered? <a href="{% url 'basicapp:signup'%}">SignUp</a></h4>
+    </div>
+  </form>
+  </div>
+</div>
+
+{% endblock  %}

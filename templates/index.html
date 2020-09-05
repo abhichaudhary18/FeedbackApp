@@ -1,0 +1,66 @@
+{%extends "base.html" %}
+
+{% block content %}
+<style media="screen">
+  .get-started-btn{
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1000em;
+        border-top-left-radius: 1000em;
+        border-top-right-radius: 1000em;
+        border-bottom-right-radius: 1000em;
+        border-bottom-left-radius: 1000em;
+        color: #0da39c;
+background-color: transparent;
+border-color: #10BBB3;
+display: inline-block;
+line-height: 1.6;
+white-space: nowrap;
+overflow: visible;
+width: 40%;
+}
+h2{
+  font-family: "Lucida Console", Courier, monospace;
+  padding-bottom: 5%;
+  padding-top: 5%;
+  font-weight: bold;
+}
+
+</style>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+
+
+  <div class="container">
+   <div class="jumbotron">
+
+          <h2 align='center'> ForYouForMe allows you to receive and send anonymous confessions and Memes to your friends. </h2>
+
+
+
+      <div class="text-center">
+
+        	{% if user.is_authenticated %}
+          <h3>Copy link to different social handles to receive messages!</h3>
+          <h3><a href="www.foryouforme.online/basicapp/{{request.user.username}}">www.foryouforme.online/basicapp/{{request.user.username}} </a></h3>
+          <h2>You can click on Messages to check confessions!</h2>
+          <a href="{% url 'basicapp:inbox' %}" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" role="button" >Messages</a><p></p>
+          <a href="{% url 'basicapp:logout' %}" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" role="button" >Logout</a>
+
+          {% else %}
+        <a href="{% url 'basicapp:login' %}" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" role="button" >Login</a>
+        <p></p>
+        <a href="{% url 'basicapp:signup' %}" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" role="button">Signup</a>
+
+        {% endif %}
+</div>
+</div>
+    </div>
+
+
+
+
+
+{% endblock %}

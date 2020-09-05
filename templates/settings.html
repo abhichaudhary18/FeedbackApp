@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{%block content%}
+<style media="screen">
+  body{
+  color:white;
+  font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+}
+h1{
+  padding-top: 20px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.container{
+  background: rgba(0,0,0,.5);
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 25px;
+  margin:100px auto;
+  padding:30px 20px 20px;
+  width: 400px;
+  height: 400px;
+}
+
+td{
+  border-bottom:1px solid #f6f6f6;
+  padding:5px 10px;
+}
+
+td:nth-child(2){
+  text-align: right;
+  width: 40px;
+}
+
+tr:last-child td{
+  border:none;
+  padding:80px 10px 10px;
+  text-align: center;
+}
+
+.btn-primary{
+  width: 100%;
+  border-radius: 25px;
+  color: #0da39c;
+background-color: transparent;
+border-color: #10BBB3;
+}
+</style>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+<div class="container">
+       <h1>Settings</h1>
+			<table width="100%">
+				<tr>
+					<td>Change Password</td>
+					<td>
+						<div>
+							<a href="{% url 'password_change' %}" class="btn btn-primary" role="button" >Change</a>
+						    <span></span>
+						</div>
+					</td>
+				</tr>
+
+				<tr>
+				<tr>
+					<td colspan="2">
+						<a href="{% url 'home' %}" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" role="button">Back To Home</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+{% endblock %}
