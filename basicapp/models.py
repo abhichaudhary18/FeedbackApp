@@ -11,7 +11,7 @@ class User(auth.models.User,auth.models.PermissionsMixin):
 
 def validate_image(image):
     file_size = image.file.size
-    limit_kb = 50
+    limit_kb = 500
     if file_size > limit_kb * 1024:
         raise ValidationError("Max size of file is %s KB" % limit_kb)
 
